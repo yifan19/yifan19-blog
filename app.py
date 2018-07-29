@@ -14,12 +14,10 @@ myPost = [{
 def index():
  return  render_template("index.html",post=myPost)
 
-
-
 @app.route("/resume") 
 def resume():
   print("my Resume")
 
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run()
 
