@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block title %} shoppingList {% endblock%}
+
+
+{% block main %}
+
+  <h1>Shopping list for today </h1>
+  
+  <table>
+    <tr>
+      <th> Item </th>
+    </tr>
+    {% for item in myList %}
+    <tr>
+      <td> {{ item["item"] }} </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
