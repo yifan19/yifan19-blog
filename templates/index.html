@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> Welcome to the Homepage </title>
+  </head>
+
+  <body>
+    <h1> Please decide what you want to do </h1>
+    <form>
+      
+    </form>
+    {% for each in post %}
+
+      <h2> {{ each["date"] }} </h2>
+      <p>  {{ each["postContent"] }} </p>
+    {% endfor %}
+  </body>
+
+</html>
+
