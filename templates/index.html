@@ -1,19 +1,44 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
-    <title> Welcome to the Homepage </title>
+    <link href="../static/style.css" rel=stylesheet>
+    <meta charset="UTF-8">
+    <title> {% block title %} {% endblock %}</title>
   </head>
 
   <body>
-    <h1> Please decide what you want to do </h1>
-    <form>
-      
-    </form>
-    {% for each in post %}
+    <header>
+      <nav class="navbar">
+        <ul>
+          <li> <a href="./">Home </a> </li>
+          <li> <a href="./shop">Shopping List </a> </li>
+          <li> <a href="./blog">blog </a> </li>
+          <li> <a href="./feedback">feedback </a> </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1> Please decide what you want to do </h1>
+      <p> LOREM IPSUM </p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo scelerisque fermentum. Nam interdum risus sed enim ultricies, id tincidunt sapien rhoncus. Nam id magna ac libero convallis dictum. Aenean convallis magna in congue lacinia. Nullam vulputate mi nisl, ut accumsan lectus maximus vel. Cras rhoncus velit non eros aliquet dapibus. Aenean augue nibh, porttitor a efficitur eu, sollicitudin et arcu. In suscipit varius sagittis. Fusce vel sodales dolor. Sed sed mauris libero. Phasellus accumsan libero risus, quis ullamcorper orci tincidunt in. Nam vitae enim aliquam, interdum velit eget, luctus nisi. Fusce facilisis convallis sapien vitae egestas. Vivamus vitae nisi elit. Ut at lacinia mauris, quis dapibus turpis.
+	    </p>
 
-      <h2> {{ each["date"] }} </h2>
-      <p>  {{ each["postContent"] }} </p>
-    {% endfor %}
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin sodales diam vulputate, bibendum libero nec, pulvinar lectus. Morbi eu mi finibus, vestibulum quam non, laoreet dolor. Nulla ac tempus nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque congue ipsum ac quam luctus varius. Aenean ullamcorper aliquet laoreet. Duis ornare congue finibus. Pellentesque lacinia ornare tincidunt. Sed ullamcorper elit sit amet aliquet maximus. Donec vel interdum ipsum. Pellentesque dictum tempor volutpat.</p>
+
+      <p>
+Pellentesque sem massa, maximus nec lobortis id, sagittis ut sem. Morbi augue velit, eleifend vitae diam sit amet, iaculis gravida diam. Suspendisse id sem sit amet enim consectetur gravida. Aliquam laoreet pulvinar nisi, sed sagittis nibh convallis sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur eu ante nec turpis maximus tempor eu id ipsum. Phasellus nec libero quis purus laoreet lobortis.
+      </p>
+
+      <p>Quisque efficitur a magna a tempor. Pellentesque suscipit in magna sed condimentum. Suspendisse mattis interdum velit vel euismod. Etiam a tempor lacus, a efficitur nunc. Donec hendrerit orci vel purus blandit vehicula. Aliquam venenatis molestie lectus eu</p>
+      <form>
+        
+      </form>
+      {% for each in post %}
+
+        <h2> {{ each["date"] }} </h2>
+        <p>  {{ each["postContent"] }} </p>
+      {% endfor %}
+    </main>
   </body>
 
 </html>
