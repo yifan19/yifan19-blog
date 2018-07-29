@@ -17,7 +17,7 @@ myList = [
   {"item": "apples"},
   {"item": "absorbing towel"},
   {"item": "avocados"},
-  {"item": "mushrooms"}
+  {"item": "mushrooms"},
   {"item": "bananas"}
 
  ]
