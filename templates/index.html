@@ -9,11 +9,47 @@
   <h2> WORK HARD PLAY HARD </h2>
 
   <hb></hb>
-  <form action="/shop" method="post">
+  <form action="/shop" method="post" id="shoppingForm">
+    <div id="textboxArea">
+      <input name="shoppingItem1" placeHolder="what do I want to purchase">
+      <br>
+    </div>
 
-    <input name="shoppingItem" placeHolder="what do I want to purchase">
-    <input type= "submit" name="request!">
+    <input  type="hidden" name="textBoxAmount" value="1" >
+    <div>
+      <input type="button" value="More Fields" id="submitShopping">
+      <input type= "submit" name="request!">
+    </div>
   </form>
+
+
+
+  <script>
+
+    function getNewTextbox(){
+      numOfTextbox++;
+
+      let newInput = document.createElement("input");
+      newInput.setAttribute("placeHolder","what else")
+      newInput.setAttribute("name", "shoppingItem" + numOfTextbox);
+
+
+      let breakLine = document.createElement("br");
+      let textboxArea = document.getElementById("textboxArea");
+
+      textboxArea.appendChild(newInput);
+      textboxArea.appendChild(breakLine);
+
+      document.getElementsByName("textBoxAmount")[0].setAttribute("value",numOfTextbox);
+
+      return 0;
+    }
+
+    let numOfTextbox = 1
+    document.getElementById("submitShopping").addEventListener("click", getNewTextbox);
+
+
+  </script>
 
 
 {% endblock %}

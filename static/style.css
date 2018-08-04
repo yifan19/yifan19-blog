@@ -14,10 +14,6 @@ table, th, td{
 .navbar{
   height: 70px;
   margin: 0;
-  border-left-style: solid;
-  border-left-width: 10px;
-  border-bottom-style: dashed;
-  border-bottom-width: 5px;
 }
 .navbar ul{
   list-style-type: none;
@@ -31,10 +27,13 @@ table, th, td{
   display:block;
   background-color: #555;
   margin: 10px;
-  padding: 15px 20px 15px 20px; 
+  padding: 15px 20px 15px 20px;
   border-style: solid;
   border-color: #333;
   text-decoration: none;
   color: #fff;
 }
 
+input{
+  padding: 10px;
+}

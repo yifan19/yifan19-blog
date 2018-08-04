@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3
 
 app = Flask(__name__)
@@ -33,10 +33,15 @@ def index():
 @app.route("/shop", methods=["get", "post"])
 def shoppingList():
   if request.method == "POST":
-    itemDescription = (request.values.get("shoppingItem"),)
 
-    db.execute(""" INSERT INTO "shoppingList"("description") VALUES(?)""",
-      itemDescription)
+    textBoxAmount = int((request.values.get("textBoxAmount")))
+    for i in range(1,textBoxAmount+1):
+
+      itemDescription = (request.values.get("shoppingItem" + str(i)),)
+
+      if (itemDescription[0]):
+        db.execute(""" INSERT INTO "shoppingList"("description") VALUES(?)""",
+                  itemDescription)
 
     dbConnect.commit()
 
@@ -53,6 +58,27 @@ def shoppingList():
 def resume():
   print("my Resume")
 
+@app.route("/blog")
+@app.route("/blog/<text>")
+def blog(text=""):
+  print(text)
+  return render_template("fail.html",displayText=text)
+
+@app.route("/removeItem", methods=["post"])
+def removeItem():
+  itemId = (request.values.get("removeItem"),)
+  if itemId:
+    db.execute(""" UPDATE "shoppingList" SET "active" = '0' WHERE itemID = ?;""",itemId)
+    dbConnect.commit()
+
+  return redirect("/shop")
+
+@app.route("/feedback", methods=["get", "post"])
+def feedback():
+  if request.method == "post":
+    return "bye"
+  else:
+    return "bye"
 if __name__ == "__main__":
   app.run()
 
