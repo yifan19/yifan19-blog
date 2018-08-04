@@ -7,14 +7,16 @@
 {% block main %}
 
   <h1>Shopping list for today </h1>
-  
+
   <table>
     <tr>
+      <th> Request Time</th>
       <th> Item </th>
     </tr>
     {% for item in myList %}
     <tr>
-      <td> {{ item["item"] }} </td>
+      <td> {{ item[1] }} </td>
+      <td> {{ item[2] }} </td>
     </tr>
     {% endfor %}
   </table>

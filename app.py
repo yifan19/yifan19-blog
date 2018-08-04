@@ -1,6 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import sqlite3
 
 app = Flask(__name__)
+dbConnect = sqlite3.connect("data.db")
+db = dbConnect.cursor()
 
 myPost = [{
   "date" : "july 28",
@@ -22,16 +25,31 @@ myList = [
 
  ]
 
-  
+
 @app.route("/")
 def index():
  return render_template("index.html",post=myPost)
 
-@app.route("/shop")
+@app.route("/shop", methods=["get", "post"])
 def shoppingList():
-  return render_template("shoppingList.html",
-                          myList=myList)
-@app.route("/resume") 
+  if request.method == "POST":
+    itemDescription = (request.values.get("shoppingItem"),)
+
+    db.execute(""" INSERT INTO "shoppingList"("description") VALUES(?)""",
+      itemDescription)
+
+    dbConnect.commit()
+
+    return render_template("index.html")
+  else:
+
+    db.execute(""" SELECT * FROM "shoppingList" WHERE "active" = 1
+                             ORDER BY "requestTime" """)
+    shoppingList = db.fetchall()
+
+    return render_template("shoppingList.html",
+                          myList=shoppingList)
+@app.route("/resume")
 def resume():
   print("my Resume")
 
